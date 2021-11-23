@@ -1,33 +1,32 @@
- 
-function newItem(){
-
-   let li = $('<li></li>');
-   let inputValue = $('#input');
-   li.append(inputValue);
-
-   if (inputValue === '') {
-     alert("You must write something!");
-   } else {
-     $('#list').append(li);
-   }
+function newItem() {
 
 
-   function crossOut() {
- 		li.classList.toggle("strike");
- 	}
+  let list = $('<li></li>');
+  let inputValue = $('#input')
+  list.append(inputValue);
 
- 	li.on("dblclick", function crossOut() {li.toggleClass("strike")
-   });
+  if (inputValue === '') {
+    alert('You must write something')
+  } else {
+    $('#list').append(list)
+  }
 
 
-   let crossOutButton = $('<crossOutButton></crossOutButton>');crossOutButton.append(document.createTextNode('X'));
+  function crossOut() {
+    list.classList.toggle('strike');
+  }
 
+  list.on('dblclick', function crossOut() {
+    list.toggleClass('strike');
+  });
 
- 	crossOutButton.on("click", deleteListItem);
+  let crossOutButton = $('<crossOutButton></crossOutButton>');
+  crossOutButton.append(document.createTextNode('X'));
+  list.append(crossOutButton);
 
-   function deleteListItem()
- 	
-
-   $('#list').sortable();
-
+  crossOutButton.on("click", deleteListItem);
+  function deleteListItem() {
+    list.addClass("delete")
+  }
+  $('#list').sortable();
 }
