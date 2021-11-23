@@ -2,7 +2,7 @@
 function newItem(){
 
    let li = $('<li></li>');
-   let inputValue = $('#input').val;
+   let inputValue = $('#input');
    li.append(inputValue);
 
    if (inputValue === '') {
@@ -21,13 +21,12 @@ function newItem(){
 
 
    let crossOutButton = $('<crossOutButton></crossOutButton>');crossOutButton.append(document.createTextNode('X'));
- 	li.apend(crossOutButton);
+
 
  	crossOutButton.on("click", deleteListItem);
 
-   function deleteListItem(){
- 		li.classList.add("delete")
- 	}
+   function deleteListItem()
+ 	
 
    $('#list').sortable();
 
